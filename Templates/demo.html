@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMUNISIGN — Live Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">COMMUNISIGN</div>
+        <a href="/" class="secondary">← Back Home</a>
+    </nav>
+
+    <section class="demo-page">
+
+        <h1>Live Sign Recognition</h1>
+        <p>Show a sign — Let the Machine Do The Thing!</p>
+
+        <div class="demo-container">
+
+            <!-- Webcam Section -->
+            <div class="webcam-card">
+                <div class="camera-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green" id="cam-status-dot"></div>
+                </div>
+                <div class="camera-body">
+                    <div class="scan-line" id="scan-line"></div>
+                    <video id="webcam" autoplay playsinline muted></video>
+                    <canvas id="output-canvas"></canvas>
+                    <div id="prediction-text" class="overlay-text">Waiting for sign...</div>
+                </div>
+            </div>
+
+            <!-- Prediction Panel -->
+            <div class="prediction-panel">
+
+                <div class="info-card">
+                    <h3>Detected Letter</h3>
+                    <h1 id="letter">-</h1>
+                </div>
+
+                <div class="info-card">
+                    <h3>Current Word</h3>
+                    <p id="word">-</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Confidence</h3>
+                    <div class="confidence-bar-wrap">
+                        <div class="confidence-bar" id="confidence-bar"></div>
+                    </div>
+                    <p id="confidence">0%</p>
+                </div>
+
+                <div class="info-card sentence-card">
+                    <h3>Sentence</h3>
+                    <p id="sentence">-</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="primary" id="startBtn">Start Recognition</button>
+            <button class="secondary" id="stopBtn" disabled>Stop Recognition</button>
+            <button class="secondary" id="clearBtn">Clear Text</button>
+            <button class="secondary" id="spaceBtn">Space</button>
+        </div>
+
+    </section>
+
+    <!-- Use the correct, working Google CDN for MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

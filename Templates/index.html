@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMUNISIGN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">COMMUNISIGN</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="/demo">Demo</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <a href="/demo" class="nav-btn">Try Demo</a>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-text">
+        <span class="badge">AI Powered Sign Language Recognition</span>
+
+        <h1>
+            Translate Sign Language
+            <span>Into Words</span>
+            Instantly.
+        </h1>
+
+        <p>
+            COMMUNISIGN bridges communication barriers using real-time
+            hand gesture recognition powered by AI.
+        </p>
+
+        <div class="buttons">
+            <a href="/demo" class="primary">Start Demo</a>
+            <a href="#features" class="secondary">Learn More</a>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="camera-card">
+            <div class="camera-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="camera-body">
+                📷 Live Camera Feed
+            </div>
+        </div>
+
+        <div class="prediction-card">
+            <h3>Detected Sign</h3>
+            <h1>A</h1>
+            <p>Confidence: 97%</p>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
