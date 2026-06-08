@@ -3,6 +3,20 @@ import numpy as np
 import pandas as pd
 import joblib
 import os
+import urllib.request
+
+def download_models():
+    files = {
+        "sign_model.pkl": "https://github.com/ftMaddy-Dev/Communisign/releases/download/v1.0/sign_model.pkl",
+        "label_encoder.pkl": "https://github.com/ftMaddy-Dev/Communisign/releases/download/v1.0/label_encoder.pkl"
+    }
+    for filename, url in files.items():
+        if not os.path.exists(filename):
+            print(f"Downloading {filename}...")
+            urllib.request.urlretrieve(url, filename)
+            print(f"✅ {filename} downloaded")
+
+download_models()
 from collections import deque, Counter
 from features import extract_normalized_landmarks_from_dicts, engineer_features, COLUMNS
 
